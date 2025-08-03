@@ -11,10 +11,18 @@
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/jsx">
+        function Homepage({title}){
+            if(title){
+                return title;
+            } else {
+                return 'Default Title';
+            }
+        }
         function Header(){
             const names = ["James", "Andrew", "John", "Kate"];
             return (
                 <div>
+                    <h1>{Homepage({title: "My React App"})}</h1>
                     <ul>
                         {names.map((name) => (
                             <li key={name}>{name}</li>
@@ -22,7 +30,6 @@
                     </ul>
                 </div>
             )
-
         }
         const app = document.getElementById('app');
         const root = ReactDOM.createRoot(app);
